@@ -12,12 +12,12 @@ import React from 'react'
 import assets from '../../constants/assets'
 import { FONTS, COLORS, SHADOWS, SIZES } from '../../constants/theme'
 
-export const NTitle = ({ title, subtitle, style }) => {
+export const NTitle = ({ title, subtitle, titleSize, subtitleSize, style }) => {
   return (
     <View style={{ ...(style ? style : {}) }}>
       <Text style={{ 
         color: COLORS.primary,
-        fontSize: SIZES.large,
+        fontSize: titleSize ? titleSize : SIZES.large,
         fontFamily: FONTS.semiBold,
         fontWeight: 'bold',
       }}
@@ -26,7 +26,7 @@ export const NTitle = ({ title, subtitle, style }) => {
       </Text>
       <Text style={{ 
         color: COLORS.primary,
-        fontSize: SIZES.small,
+        fontSize: subtitleSize ? subtitleSize : SIZES.small,
         fontFamily: FONTS.regular,
         fontWeight: '400',
 
@@ -50,9 +50,9 @@ export const NPrice = ({ price, Btn, btnTxt, handlePress, ...props }) => {
   )
 }
 
-export const NPeople = (p = []) => {
-  const peoples = p.length 
-        ? p 
+export const NPeople = (people = []) => {
+  const peoples = people.length 
+        ? people 
         : [assets.person01, assets.person02, assets.person03, assets.person04];
 
   return (
